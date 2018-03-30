@@ -1,26 +1,47 @@
+
 set cpoptions+=$
-syntax enable
-set number
-set autoindent
-set tabstop=4 shiftwidth=4 expandtab
+
+set tabstop=4
+set shiftwidth=4
 set smarttab
-set backspace=indent,eol,start
+set et
 
 set wrap
 
+set ai
 set cin
-
 
 set showmatch
 set hlsearch
 set incsearch
 set ignorecase
 
-set lz
+se lz
+
+set number
+
+autocmd FileType cpp set keywordprg=cppman
+
+"setup breakets shifting
+
+map! { {}ko
 
 let &colorcolumn=join(range(81,999),",")
-let &colorcolumn="80,".join(range(120,999),",")
-hi ColorColumn ctermbg=lightgrey guibg=lightgrey
+let &colorcolumn="81,".join(range(120,999),",")
+hi ColorColumn ctermbg=grey guibg=grey
 
+set foldcolumn=4
 
 autocmd BufWritePre * %s/\s\+$//e
+
+if &diff
+    colorscheme apprentice
+endif
+
+set number relativenumber
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
