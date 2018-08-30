@@ -12,7 +12,7 @@ echo "Install softs..."
 
 apt update && \
 apt install -y vim git shutter openssh-server zsh cmake libboost-all-dev doxygen \
-            chromium-browser cppman zsh screen tmux && \
+    chromium-browser cppman zsh screen tmux vlan wireshark && \
 
 
 # Generate ssh keys
@@ -27,11 +27,11 @@ chsh -s $(which zsh)
 echo "installing vim plugin manager ... "
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim && \
-echo "execute pathogen#infect()" >> .vimrc
+echo "execute pathogen#infect()" >> ~/.vimrc
 
 echo "installing  NERDTree... "
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree && \
-echo "map <C-n> :NERDTreeToggle<CR>" >> .vimrc
+echo "map <C-n> :NERDTreeToggle<CR>" >> ~/.vimrc
 
 echo "installing YouCompleteMe... "
 git clone https://github.com/Valloric/YouCompleteMe.git ~/.vim/bundle/YouCompleteMe && \
@@ -40,6 +40,16 @@ git submodule update --init --recursive && \
 ./install.py --clang-completer
 
 echo "installing cppman into vim"
-echo "autocmd FileType cpp set keywordprg=cppman" >> .vimrc
+echo "autocmd FileType cpp set keywordprg=cppman" >> ~/.vimrc
 echo "running into screen caching cppman lists"
 screen -dmS cppman_caching "y | cppman -c"
+
+echo "installing gruvbox"
+git clone https://github.com/morhetz/gruvbox.git ~/.vim/bundle/gruvbox
+
+echo "set termguicolors" >> ~/.vimrc
+echo "let g:gruvbox_italic=1 \" Comment if your terminal is not support italic" >> ~/.vimrc
+echo "colorscheme gruvbox" >> ~/.vimrc
+echo "set background=dark" >> ~/.vimrc
+
+echo "It is possible setup CMake And YouCompleteMe. See http://bastian.rieck.ru/blog/posts/2015/ycm_cmake/ for more details"
