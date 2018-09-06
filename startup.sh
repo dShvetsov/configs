@@ -24,6 +24,9 @@ sleep 2
 echo "make zsh dedault"
 chsh -s $(which zsh)
 
+echo "installing oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 echo "installing vim plugin manager ... "
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim && \
@@ -53,3 +56,6 @@ echo "colorscheme gruvbox" >> ~/.vimrc
 echo "set background=dark" >> ~/.vimrc
 
 echo "It is possible setup CMake And YouCompleteMe. See http://bastian.rieck.ru/blog/posts/2015/ycm_cmake/ for more details"
+
+echo "let g:ycm_confirm_extra_conf = 1" >> ~/.vimrc # Year this is not safe
+
