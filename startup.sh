@@ -10,8 +10,10 @@ echo "Start settings system"
 
 echo "Install softs..."
 
+# Для настройки нужно установить эти пакеты
+
 apt update && \
-apt install -y vim git shutter openssh-server zsh cmake libboost-all-dev doxygen \
+apt install -y vim git openssh-server zsh cmake libboost-all-dev doxygen \
             chromium-browser cppman zsh screen tmux && \
 
 
