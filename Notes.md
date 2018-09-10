@@ -29,3 +29,13 @@ The advantage of the command-line window is that you can use all Vim's editing p
 
     Press Enter to execute the current line (and close the command-line window); or
     Press Ctrl-c twice to close the command-line window (cancel). 
+    
+# Use ci", which means: change what inside the double quotes.
+
+You can also manipulate other text objects in a similar way, e.g.:
+
+    ci' - change inside the single quotes
+    ciw - change inside a word
+    ci( - change inside parentheses
+    dit - delete inside an HTML tag, etc.
+
