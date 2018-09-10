@@ -40,4 +40,6 @@ You can also manipulate other text objects in a similar way, e.g.:
     dit - delete inside an HTML tag, etc.
     
     also works with visual `vi"` or `vi(` or `vi{`
+    
+    If you want include the quates also use `va"`
 
