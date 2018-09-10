@@ -38,4 +38,6 @@ You can also manipulate other text objects in a similar way, e.g.:
     ciw - change inside a word
     ci( - change inside parentheses
     dit - delete inside an HTML tag, etc.
+    
+    also works with visual `vi"` or `vi(` or `vi{`
 
